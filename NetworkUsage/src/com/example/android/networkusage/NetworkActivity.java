@@ -114,16 +114,20 @@ public class NetworkActivity extends Activity {
      * Step3: Turn off the slow one
      * Step4: 
      */
-        
+        Context context = this.getApplicationContext();
         //Check wifi and mobile connectivity
         updateConnectedFlags();
         // if Wifi is Connected
         if(wifiConnected){
         	//test wifi speed
         }
-        else
+        else{
         	//turn on Wifi and check speed
-        	
+        	WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
+        	wifiManager.setWifiEnabled(true);
+        	//check if wifi is connected
+        	updateConnectedFlags();
+        }
         //Next test mobile speed	
         if(mobileConnected){
         	//test mobile conneciton speed
