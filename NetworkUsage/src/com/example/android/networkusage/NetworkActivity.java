@@ -115,19 +115,26 @@ public class NetworkActivity extends Activity {
      * Step4: 
      */
         
-        Context context = this.getApplicationContext();
-        //Step1
-        ConnectivityManager connectivityManager = (ConnectivityManager)
-                context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo networkInfo = null;
-            if (connectivityManager != null) {
-                networkInfo =
-                    connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-            }
+        //Check wifi and mobile connectivity
+        updateConnectedFlags();
+        // if Wifi is Connected
+        if(wifiConnected){
+        	//test wifi speed
+        }
+        else
+        	//turn on Wifi and check speed
+        	
+        //Next test mobile speed	
+        if(mobileConnected){
+        	//test mobile conneciton speed
+        }
+        // turn on Mobile and check speed
+        else {
+        	//1. turn off Wifi
+        	//2. turn on Mobile
+        }
             
-        
-        
-        
+                     
         // Only loads the page if refreshDisplay is true. Otherwise, keeps previous
         // display. For example, if the user has set "Wi-Fi only" in prefs and the
         // device loses its Wi-Fi connection midway through the user using the app,
