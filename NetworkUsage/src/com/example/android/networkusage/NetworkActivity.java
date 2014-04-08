@@ -379,7 +379,7 @@ public class NetworkActivity extends Activity {
 			long updateDelta=0;
 			int  bytesInThreshold=0;
 
-			while((currentByte=stream.read())!=-1){	
+			while((currentByte=stream.read())!=-1) {	
 				bytesIn++;
 				bytesInThreshold++;
 				if(updateDelta>=UPDATE_THRESHOLD){
