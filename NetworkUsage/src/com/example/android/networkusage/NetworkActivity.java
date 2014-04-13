@@ -32,6 +32,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.networkusage.R;
@@ -70,15 +71,21 @@ public class NetworkActivity extends Activity {
 	public static final String ANY = "Any";
 	private static final String URL = "http://stackoverflow.com/feeds/tag?tagnames=android&sort=newest";
 
+	
 	// Whether there is a Wi-Fi connection.
 	private static boolean wifiConnected = false;
 	// Whether there is a mobile connection.
 	private static boolean mobileConnected = false;
 	// Whether the display should be refreshed.
 	public static boolean refreshDisplay = true;
+	
+	
+	private String downloadSpeed1;
 
 	// The user's current network preference setting.
 	public static String sPref = null;
+	
+	
 
 	// The BroadcastReceiver that tracks network connectivity changes.
 	private NetworkReceiver receiver = new NetworkReceiver();
@@ -270,6 +277,9 @@ public class NetworkActivity extends Activity {
 			// Displays the HTML string in the UI via a WebView
 			WebView myWebView = (WebView) findViewById(R.id.webview);
 			myWebView.loadData(result, "text/html", null);
+			
+			TextView textview=(TextView) findViewById(R.id.textview);
+			textview.setText("Download speed:"+downloadSpeed1);
 		}
 	}
 
@@ -459,6 +469,17 @@ public class NetworkActivity extends Activity {
 			Log.e(TAG, String.valueOf(info1.kilobits));
 			Log.e(TAG, "Download speed");
 			Log.e(TAG, String.valueOf(info1.downspeed));
+			
+			
+			downloadSpeed1=String.valueOf(info1.megabits);
+			
+			
+			/*
+			setContentView(R.layout.main);
+			TextView textview=(TextView) findViewById(R.id.textview);
+			textview.setText("Download speed:");
+			*/
+			
 		} catch (MalformedURLException e) {
 			Log.e(TAG, e.getMessage());
 		} catch (IOException e) {
