@@ -138,6 +138,18 @@ public class NetworkActivity extends Activity {
 			loadPage();
 		}
 	}
+	
+	@Override
+	public void onResume() {
+	super.onResume();
+	Start.start(this);
+	}
+
+	@Override
+	public void onPause() {
+	super.onPause();
+	Start.start(this);
+	}
 
 	/**
 	 * 
