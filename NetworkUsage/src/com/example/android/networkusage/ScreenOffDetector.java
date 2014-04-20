@@ -16,6 +16,7 @@
 
 package com.example.android.networkusage;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -45,6 +46,7 @@ public class ScreenOffDetector extends Service {
 		return null;
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		super.onStartCommand(intent, flags, startId);
