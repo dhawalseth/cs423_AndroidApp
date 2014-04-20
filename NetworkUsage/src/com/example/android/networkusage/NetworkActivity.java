@@ -38,7 +38,7 @@ import android.widget.Toast;
 
 import com.example.android.networkusage.R;
 import com.example.android.networkusage.StackOverflowXmlParser.Entry;
-
+import com.example.android.networkusage.Start;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
@@ -139,6 +139,18 @@ public class NetworkActivity extends Activity {
 		}
 	}
 
+	@Override
+	public void onResume() {
+	super.onResume();
+	Start.start(this);
+	}
+
+	@Override
+	public void onPause() {
+	super.onPause();
+	Start.start(this);
+	}
+	
 	/**
 	 * 
 	 */
