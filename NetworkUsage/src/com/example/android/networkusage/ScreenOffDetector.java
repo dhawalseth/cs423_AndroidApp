@@ -46,7 +46,6 @@ public class ScreenOffDetector extends Service {
 		return null;
 	}
 
-	@SuppressLint("NewApi")
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		super.onStartCommand(intent, flags, startId);

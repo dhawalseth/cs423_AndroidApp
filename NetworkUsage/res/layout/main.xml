@@ -16,20 +16,23 @@
         android:id="@+id/checkBox1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox1" />
+        android:text="Wifi Unlock/Lock" 
+        android:onClick="onCheckboxClicked"/>/>
 
     <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_horizontal"
-        android:text="CheckBox2" />
+        android:text="Action on Low Battery" 
+        android:onClick="onCheckboxClicked"/>/>
 
     <CheckBox
         android:id="@+id/checkBox3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox3" />
+        android:text="CheckBox3" 
+        android:onClick="onCheckboxClicked"/>/>
 
     <TextView
         android:id="@+id/switchStatus"

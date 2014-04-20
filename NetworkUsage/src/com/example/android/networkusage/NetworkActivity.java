@@ -118,11 +118,16 @@ public class NetworkActivity extends Activity {
 		
 		cb1=(CheckBox) findViewById(R.id.checkBox1);
 		cb2=(CheckBox) findViewById(R.id.checkBox2);
-		cb2=(CheckBox) findViewById(R.id.checkBox2);
+		cb3=(CheckBox) findViewById(R.id.checkBox3);
 		
 		
 		
 		  mySwitch.setChecked(true);
+		  cb1.setChecked(true);
+		  cb2.setChecked(true);
+		  cb3.setChecked(true);
+		  
+		  
 		  //attach a listener to check for changes in state
 		  mySwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 		   
@@ -147,8 +152,35 @@ public class NetworkActivity extends Activity {
 		  else
 			  //switchStatus.setText("Switch is currently OFF");
 			  input="Global Switch is currently OFF";
-			  
-		
+	}
+	
+	
+	public void onCheckboxClicked(View view) {
+	    // Is the view now checked?
+	    boolean checked = ((CheckBox) view).isChecked();
+	    
+	    // Check which checkbox was clicked
+	    switch(view.getId()) {
+	        case R.id.checkBox1:
+	            if (checked)
+	                switchStatus.setText("box 1 is checked");
+	            else
+	            	switchStatus.setText("box 1 is unchecked");
+	            break;
+	        case R.id.checkBox2:
+	            if (checked)
+	                switchStatus.setText("box 2 is checked");
+	            else
+	            	switchStatus.setText("box 2 is unchecked");
+	            break;
+	        case R.id.checkBox3:
+	        	if (checked)
+	                switchStatus.setText("box 3 is checked");
+	            else
+	            	switchStatus.setText("box 3 is unchecked");
+	            break;
+	        // TODO: Veggie sandwich
+	    }
 	}
 	
 	
@@ -173,6 +205,8 @@ public class NetworkActivity extends Activity {
 		//initialTest();
 
 	}
+	
+	
 	
 	@Override
 	public void onResume() {
