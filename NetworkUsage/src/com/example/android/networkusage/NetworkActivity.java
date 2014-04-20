@@ -25,6 +25,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
+import android.os.BatteryManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -121,7 +122,8 @@ public class NetworkActivity extends Activity {
 		 * Step1: Turn both Network and Wifi ON Step2: Check speed of Both
 		 * Step3: Turn off the slow one Step4:
 		 */
-		initialTest();
+		actionOnBatteryLife(getApplicationContext());
+		//initialTest();
 
 		// Only loads the page if refreshDisplay is true. Otherwise, keeps
 		// previous
@@ -203,6 +205,37 @@ public class NetworkActivity extends Activity {
 		} else {
 			wifiConnected = false;
 			mobileConnected = false;
+		}
+	}
+
+	/*
+	 * Calculate battery level
+	 */
+	private int calculateBatteryLevel(Context context) {
+		// LogFile.log("calculateBatteryLevel()");
+
+		Intent batteryIntent = context.getApplicationContext()
+				.registerReceiver(null,
+						new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+
+		int level = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
+		int scale = batteryIntent.getIntExtra(BatteryManager.EXTRA_SCALE, 100);
+		return level * 100 / scale;
+	}
+
+	/*
+	 * Action when battery life is less
+	 */
+	private void actionOnBatteryLife(Context context) {
+		int batteryLevel = calculateBatteryLevel(context);
+		if (batteryLevel < 20) {
+			// turn off Wifi and GPS
+			enableDisableWifi(false);
+			// GPS?
+
+			if (batteryLevel < 20) {
+				// turn off network also
+			}
 		}
 	}
 
