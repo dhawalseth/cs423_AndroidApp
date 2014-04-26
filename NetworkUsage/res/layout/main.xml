@@ -4,14 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <Switch
-        android:id="@+id/mySwitch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Power Saving"
-        android:textOff="Off"
-        android:textOn="On" />
-
     <CheckBox
         android:id="@+id/checkBox1"
         android:layout_width="match_parent"
@@ -31,18 +23,14 @@
         android:id="@+id/checkBox3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox3" 
-        android:onClick="onCheckboxClicked"/>/>
+        android:text="Set Network Preference" 
+        android:onClick="onCheckboxClicked"/>
+/>
 
     <TextView
         android:id="@+id/switchStatus"
         android:layout_width="match_parent"
         android:layout_height="82dp"
-        android:layout_weight="0.36" />
-
-    <WebView
-        android:id="@+id/webview"
-        android:layout_width="fill_parent"
-        android:layout_height="134dp" />
+        android:layout_weight="0.26" />
 
 </LinearLayout>

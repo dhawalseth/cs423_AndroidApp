@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.CheckBox;
 
 /**
  * 
@@ -39,7 +40,7 @@ public class Start {
 	 */
 	static void start(Context c) {
 		//SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
-		//if (prefs.getBoolean("off_screen_off", true)) {
+		//if (prefs.getBoolean("off_screen_off", true)) {		
 			Log.e(TAG, "AIEEEEEE start");
 			c.startService(new Intent(c, ScreenOffDetector.class));
 		//} else {

@@ -14,7 +14,7 @@ public class SpeedTest {
 	
 // @Override
 
-static void testSpeed() {
+static double testSpeed() {
 	InputStream stream = null;
 	try {
 		int bytesIn = 0;
@@ -43,8 +43,8 @@ static void testSpeed() {
 			bytesInThreshold++;
 			if (updateDelta >= UPDATE_THRESHOLD) {
 				int progress = (int) ((bytesIn / (double) EXPECTED_SIZE_IN_BYTES) * 100);
-				// Log.e(TAG, "Progress");
-				// Log.e(TAG, new Integer(progress).toString());
+				Log.e(TAG, "Progress");
+				Log.e(TAG, new Integer(progress).toString());
 				// Message msg=Message.obtain(mHandler, MSG_UPDATE_STATUS,
 				// calculate(updateDelta, bytesInThreshold));
 				// msg.arg1=progress;
@@ -76,7 +76,7 @@ static void testSpeed() {
 		
 		
 		downloadSpeed1=String.valueOf(info1.megabits);
-		
+		return info1.downspeed;
 		
 		/*
 		setContentView(R.layout.main);
@@ -97,6 +97,7 @@ static void testSpeed() {
 			// Suppressed
 		}
 	}
+	return 0;
 
 }
 
